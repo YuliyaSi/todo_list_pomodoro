@@ -14,7 +14,6 @@ const InputField: NextPage = () => {
 export default InputField;
 
 const StyledContainer = styled.div`
-  width: 100vw;
   height: 20vh;
   display: flex;
   align-items: center;
