@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 const StyledFooter = styled.footer`
-  width: 100%;
+  width: 100vw;
   padding: 2rem 5rem;
   display: grid;
   place-items: center;
