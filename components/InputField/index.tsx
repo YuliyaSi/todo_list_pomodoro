@@ -69,7 +69,7 @@ const StyledContainer = styled.div`
   padding: 2rem;
   width: 100%;
   background: ${({ theme }) => theme.colors.attentionLight};
-  box-shadow: 0px 3px 100px 8px rgba(247, 183, 51, 0.59);
+  box-shadow: 0 3px 100px 8px rgba(247, 183, 51, 0.59);
 `
 
 const StyledBox = styled.div`
