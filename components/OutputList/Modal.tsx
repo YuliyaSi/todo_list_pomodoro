@@ -42,7 +42,7 @@ const ModalContainer = styled.div`
 const TextHolder = styled.div`
   width: 30rem;
   padding: 1rem 0;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.light};
   text-align: center;
 `
 
