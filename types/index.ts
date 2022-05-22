@@ -1,5 +1,5 @@
 export type TTime = '10' | '30' | '60';
-export type TPriority = 'light' | 'medium' | 'hard';
+export type TPriority = 'light' | 'medium' | 'hard' | string;
 
 export interface ITask {
     id: string,
@@ -7,6 +7,7 @@ export interface ITask {
     description: string,
     completed: boolean,
     priority: TPriority
+    time: number
 }
 
 export interface IList {
@@ -15,5 +16,14 @@ export interface IList {
 
 export type TInput = {
     addNewTask: (v: ITask) => void,
-    // todos: Pick<IList, 'todos'>
+}
+
+export interface IModal {
+    setModal: (v: boolean) => void,
+
+}
+
+export interface ITimer {
+    start: boolean,
+    time: number
 }

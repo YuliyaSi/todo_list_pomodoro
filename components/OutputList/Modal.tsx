@@ -1,0 +1,64 @@
+import React from 'react';
+import styled from "styled-components";
+import {VscDebugRestart} from "react-icons/vsc";
+import {AiOutlineFileDone} from "react-icons/ai";
+import {NextPage} from "next";
+import {IModal} from "../../types";
+
+const Modal: NextPage<IModal> = ({ setModal }) => {
+    return (
+        <ModalContainer>
+            <TextHolder>
+                <h1>Time is up!</h1>
+                <p>Are you sure want to finish this task?</p>
+                <ButtonsHolder>
+                    <Button>
+                        <VscDebugRestart/>
+                    </Button>
+                    <Button>
+                        <AiOutlineFileDone/>
+                    </Button>
+                </ButtonsHolder>
+            </TextHolder>
+        </ModalContainer>
+    );
+};
+
+export default Modal;
+
+const ModalContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  padding: 0 3rem;
+  background: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-items: center;
+`
+
+const TextHolder = styled.div`
+  width: 30rem;
+  padding: 1rem 0;
+  background: #fff;
+  text-align: center;
+`
+
+const ButtonsHolder = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
+  gap: 1rem;
+`
+const Button = styled.button`
+  cursor: pointer;
+  max-width: 5rem;
+  padding: 1rem 2rem;
+  background: ${({ theme }) => theme.colors.attention};
+  border: transparent;
+  border-radius: 0.5rem;
+  display: grid;
+  place-items: center;
+  font-size: x-large; 
+`

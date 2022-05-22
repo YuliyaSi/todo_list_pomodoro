@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import Head from "next/head";
 import {NextPage} from "next";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 interface ILayout {
     title?: string,
@@ -21,7 +21,7 @@ const Layout: NextPage<ILayout> = ({ children, title = 'ToDoList' }) => {
                 {children}
             </main>
 
-            <Footer/>
+            {/*<Footer/>*/}
         </>
     );
 };

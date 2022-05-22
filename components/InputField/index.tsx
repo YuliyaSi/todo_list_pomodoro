@@ -8,11 +8,10 @@ const InputField: NextPage<TInput> = ({ addNewTask }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('light');
-    const [time, setTime] = useState<number | undefined>(undefined);
+    const [time, setTime] = useState(0);
 
     const handleAddTask = () => {
-      // @ts-ignore
-        addNewTask({ id, title, description, priority, completed: false });
+        addNewTask({ id, title, description, priority, completed: false, time});
     }
 
     return (
