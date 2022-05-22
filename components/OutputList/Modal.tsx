@@ -28,11 +28,12 @@ const Modal: NextPage<IModal> = ({ handleRestart, handleFinishTask }) => {
 export default Modal;
 
 const ModalContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-  padding: 0 3rem;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   background: rgba(0, 0, 0, 0.7);
   display: grid;
   place-items: center;
