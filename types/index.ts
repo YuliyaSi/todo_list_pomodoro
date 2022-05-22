@@ -7,7 +7,7 @@ export interface ITask {
     description: string,
     completed: boolean,
     priority: TPriority
-    time: number
+    time: TTime
 }
 
 export interface IList {
@@ -26,6 +26,6 @@ export interface IModal {
 export interface ITimer {
     start: boolean,
     timeStop: () => void,
-    time: number,
+    time: TTime,
     setDone: (v: boolean) => void,
 }

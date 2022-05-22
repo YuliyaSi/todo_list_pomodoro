@@ -6,14 +6,14 @@ import {ITimer} from "../../types";
 
 const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
 
-    const currTime = useRef(time);
+    const currTime = useRef(Number(time));
     const [progress, setProgress] = useState(100);
     const [modal, setModal] = useState(false)
     let myInterval = useRef<any>()
 
     const tick = () => {
         if(currTime.current > 0) {
-            setProgress(Math.floor(--currTime.current * 100 / time))
+            setProgress(Math.floor(--currTime.current * 100 / Number(time)))
         } else {
             setModal(true)
             timeStop()
@@ -22,7 +22,7 @@ const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
 
     const handleRestart = () => {
         setModal(false)
-        currTime.current = time
+        currTime.current = Number(time)
         setProgress(100)
     }
 

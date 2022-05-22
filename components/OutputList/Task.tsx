@@ -38,7 +38,7 @@ const StyledTask = styled.div<Partial<ITask>>`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme, priority }) => priority === 'light' ? theme.colors.free : priority === 'medium' ? theme.colors.attention : theme.colors.warning};
+  background-color: ${({ theme, priority }) => priority === 'light' ? theme.colors.freeLight : priority === 'medium' ? theme.colors.attentionLight : theme.colors.warningLight};
   padding: 0 3rem;
 `
 
