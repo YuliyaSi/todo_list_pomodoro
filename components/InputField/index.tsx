@@ -1,17 +1,23 @@
-import React, {useId, useState} from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import {NextPage} from "next";
 import {TInput, TPriority, TTime} from "../../types";
 
 const InputField: NextPage<TInput> = ({ addNewTask }) => {
-    const id = useId();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState<TPriority>('light');
     const [time, setTime] = useState<TTime>('10');
 
     const handleAddTask = () => {
-        addNewTask({ id, title, description, priority, completed: false, time});
+        if ( title.trim() !== '' && description.trim() !== '') {
+            addNewTask({ title, description, priority, completed: false, time});
+            setTitle('');
+            setDescription('');
+            setPriority('light');
+            setTime('10')
+        }
+
     }
 
     return (

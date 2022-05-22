@@ -1,12 +1,8 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import Head from "next/head";
 import {NextPage} from "next";
-// import Footer from "./Footer";
-
-interface ILayout {
-    title?: string,
-    children: ReactNode
-}
+import {ILayout} from "../types";
+import Footer from "./Footer";
 
 const Layout: NextPage<ILayout> = ({ children, title = 'ToDoList' }) => {
     return (
@@ -21,7 +17,7 @@ const Layout: NextPage<ILayout> = ({ children, title = 'ToDoList' }) => {
                 {children}
             </main>
 
-            {/*<Footer/>*/}
+            <Footer/>
         </>
     );
 };

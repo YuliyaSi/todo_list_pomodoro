@@ -4,10 +4,11 @@ import Link from "next/link";
 
 const StyledFooter = styled.footer`
   width: 100vw;
-  padding: 2rem 5rem;
+  background: ${({ theme }) => theme.colors.attentionLight};
+  padding: 1rem 5rem;
   display: grid;
   place-items: center;
-  border-top: 1px solid ${({ theme }) => theme.colors.base};
+  border-top: 1px solid ${({theme}) => theme.colors.base};
   position: fixed;
   bottom: 0;
 

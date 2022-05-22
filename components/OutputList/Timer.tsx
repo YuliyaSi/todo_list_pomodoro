@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import styled from "styled-components";
 import {NextPage} from "next";
 import Modal from "./Modal";
-import {ITimer} from "../../types";
+import {IFiller, ITimer} from "../../types";
 
 const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
 
@@ -12,7 +12,7 @@ const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
     let myInterval = useRef<any>()
 
     const tick = () => {
-        if(currTime.current > 0) {
+        if (currTime.current > 0) {
             setProgress(Math.floor(--currTime.current * 100 / Number(time)))
         } else {
             setModal(true)
@@ -33,20 +33,20 @@ const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
     }
 
     useEffect(() => {
-        start ? myInterval.current = setInterval(tick, 1000) : clearInterval(myInterval.current)
-    },
+            start ? myInterval.current = setInterval(tick, 1000) : clearInterval(myInterval.current)
+        },
         [start]);
 
     return (
         <>
             <TimerContainer>
-            <Container>
-                <Filler completed={progress}>
-                    <Label>{`${progress}%`}</Label>
-                </Filler>
-            </Container>
-        </TimerContainer>
-            { modal && <Modal handleFinishTask={handleFinishTask} handleRestart={handleRestart}/> }
+                <Container>
+                    <Filler completed={progress}>
+                        <Label>{`${progress}%`}</Label>
+                    </Filler>
+                </Container>
+            </TimerContainer>
+            {modal && <Modal handleFinishTask={handleFinishTask} handleRestart={handleRestart}/>}
         </>
     );
 };
@@ -54,34 +54,30 @@ const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
 export default Timer;
 
 const TimerContainer = styled.div`
+  flex-basis: 50%;
   display: flex;
-  justify-content: center;
   align-items: flex-start;
   padding: 2rem 3rem;
 `
 const Container = styled.div`
   height: 20px;
   width: 100%;
-  background-color: #e0e0de;
+  background-color: ${({ theme }) => theme.colors.free};
   border-radius: 50px;
   margin: 50px;
 `;
-
-interface IFiller {
-    completed: number,
-}
 
 const Filler = styled.div<IFiller>`
   height: 100%;
   width: ${({completed}) => completed}%;
   background-color: ${({theme}) => theme.colors.warning};
   border-radius: inherit;
-  text-align: right;
+  text-align: center;
   transition: width 1s ease-in-out;
 `
 
 const Label = styled.span`
-  padding: 5px;
-  color: white;
+  padding: 0 1rem;
+  color: ${({ theme }) => theme.colors.light};
   font-weight: bold;
 `

@@ -4,7 +4,7 @@ export const theme = {
         warning: '#FC4A1A',
         attention: '#F7B733',
         free: '#4ABDAC',
-        warningLight: 'rgba(252, 74, 26, 0.1)',
+        warningLight: 'rgba(252, 74, 26, 0.3)',
         attentionLight: 'rgba(247, 183, 51, 0.3)',
         freeLight: 'rgba(74, 189, 172, .5)',
         light: '#FFFFFF',
