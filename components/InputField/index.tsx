@@ -15,9 +15,8 @@ const InputField: NextPage<TInput> = ({ addNewTask }) => {
             setTitle('');
             setDescription('');
             setPriority('light');
-            setTime('10')
+            setTime('10');
         }
-
     }
 
     return (

@@ -19,8 +19,8 @@ const Task: NextPage<ITask> = ({ id, title, description, completed, priority, ti
     return (
         <StyledTask priority={priority}>
             <StyledCheck>
-                <input type="checkbox" checked={done} id={id.toString()} style={{ display: 'none'}}/>
-                <label htmlFor={id.toString()}/>
+                <input type="checkbox" checked={done} id={id!.toString()} style={{ display: 'none'}}/>
+                <label htmlFor={id!.toString()}/>
             </StyledCheck>
             <TitleHolder>
                 <p>{title}</p>

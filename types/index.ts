@@ -9,7 +9,7 @@ export interface ILayout {
 }
 
 export interface ITask {
-    id: number,
+    id?: number,
     title: string,
     description: string,
     completed: boolean,
@@ -22,7 +22,7 @@ export interface IList {
 }
 
 export type TInput = {
-    addNewTask: (v: Partial<ITask>) => void,
+    addNewTask: (v: ITask) => void,
 }
 
 export interface IModal {
