@@ -1,5 +1,5 @@
 export type TTime = '10' | '30' | '60';
-export type TPriority = 'light' | 'medium' | 'hard' | string;
+export type TPriority = 'light' | 'medium' | 'hard';
 
 export interface ITask {
     id: string,
@@ -19,11 +19,13 @@ export type TInput = {
 }
 
 export interface IModal {
-    setModal: (v: boolean) => void,
-
+    handleFinishTask: () => void,
+    handleRestart: () => void,
 }
 
 export interface ITimer {
     start: boolean,
-    time: number
+    timeStop: () => void,
+    time: number,
+    setDone: (v: boolean) => void,
 }

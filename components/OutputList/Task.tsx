@@ -8,6 +8,7 @@ import Timer from "./Timer";
 const Task: NextPage<ITask> = ({ title, description, completed, priority, time }) => {
     const [done, setDone] = useState(completed);
     const [start, setStart] = useState(false);
+
     const timeStart = () => {
         setStart(true);
     }
@@ -26,7 +27,7 @@ const Task: NextPage<ITask> = ({ title, description, completed, priority, time }
                 <BsPlayCircle onClick={timeStart}/>
                 <BsStopCircle onClick={timeStop}/>
             </Buttons>
-            <Timer start={start} time={time}/>
+            <Timer start={start} timeStop={timeStop} time={time} setDone={setDone}/>
         </StyledTask>
     );
 };

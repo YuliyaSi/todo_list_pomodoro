@@ -4,15 +4,32 @@ import {NextPage} from "next";
 import Modal from "./Modal";
 import {ITimer} from "../../types";
 
-const Timer: NextPage<ITimer> = ({time, start}) => {
+const Timer: NextPage<ITimer> = ({time, start, setDone, timeStop}) => {
 
     const currTime = useRef(time);
     const [progress, setProgress] = useState(100);
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState(false)
     let myInterval = useRef<any>()
 
     const tick = () => {
-        currTime.current > 0 ? setProgress(Math.floor(--currTime.current * 100 / time)) : setProgress(0)
+        if(currTime.current > 0) {
+            setProgress(Math.floor(--currTime.current * 100 / time))
+        } else {
+            setModal(true)
+            timeStop()
+        }
+    }
+
+    const handleRestart = () => {
+        setModal(false)
+        currTime.current = time
+        setProgress(100)
+    }
+
+    const handleFinishTask = () => {
+        setModal(false);
+        setDone(true)
+        setProgress(0)
     }
 
     useEffect(() => {
@@ -29,7 +46,7 @@ const Timer: NextPage<ITimer> = ({time, start}) => {
                 </Filler>
             </Container>
         </TimerContainer>
-            { modal && <Modal setModal={setModal}/> }
+            { modal && <Modal handleFinishTask={handleFinishTask} handleRestart={handleRestart}/> }
         </>
     );
 };

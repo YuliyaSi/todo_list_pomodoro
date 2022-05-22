@@ -5,17 +5,18 @@ import {AiOutlineFileDone} from "react-icons/ai";
 import {NextPage} from "next";
 import {IModal} from "../../types";
 
-const Modal: NextPage<IModal> = ({ setModal }) => {
+const Modal: NextPage<IModal> = ({ handleRestart, handleFinishTask }) => {
+
     return (
         <ModalContainer>
             <TextHolder>
                 <h1>Time is up!</h1>
                 <p>Are you sure want to finish this task?</p>
                 <ButtonsHolder>
-                    <Button>
+                    <Button onClick={handleRestart}>
                         <VscDebugRestart/>
                     </Button>
-                    <Button>
+                    <Button onClick={handleFinishTask}>
                         <AiOutlineFileDone/>
                     </Button>
                 </ButtonsHolder>
